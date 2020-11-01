@@ -25,9 +25,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  width: 100%;
+  height: 100%;
   background: url("../background.jpg");
   -o-object-fit: contain;
      object-fit: contain;
@@ -42,7 +42,8 @@ body {
 }
 
 .container .form-container .form {
-  padding: 3rem;
+  width: 700px;
+  padding: 2rem;
   background: #3b21a7;
 }
 
@@ -52,16 +53,12 @@ body {
   text-transform: uppercase;
 }
 
-.container .form-container .form p {
+.container .form-container .form .form__info {
   margin: 0 0 4rem 0;
 }
 
 .form__input-container {
   width: 100%;
-}
-
-.form__input-container label {
-  margin: 0.7rem 0;
 }
 
 .form__input-container .form__input {
@@ -75,10 +72,35 @@ body {
   margin: 1rem 0;
   padding: 0.5rem 1rem;
   color: #3385ff;
+  position: relative;
+  -webkit-transition: all 700ms ease-in-out;
+  transition: all 700ms ease-in-out;
 }
 
-.btn {
-  margin: 1rem 0 0 0;
+.form__input-container .error {
+  border-bottom: 2px solid #e74e4e;
+}
+
+.form__input-container .success {
+  border-bottom: 2px solid #77d16b;
+}
+
+.form__input-container .error__message {
+  color: #e74e4e;
+  visibility: hidden;
+  margin: 0 0 2rem 0;
+}
+
+.form__input-container .visible {
+  visibility: visible;
+}
+
+.form__button-container {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.form__button-container .btn {
   padding: 0.8rem 3rem;
   background: none;
   border: 2px solid white;
@@ -88,9 +110,10 @@ body {
   cursor: pointer;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
+  outline: none;
 }
 
-.btn:hover {
+.form__button-container .btn:hover {
   background: white;
   color: black;
 }
